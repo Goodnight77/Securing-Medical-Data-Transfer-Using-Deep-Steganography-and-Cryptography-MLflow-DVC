@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/08you/Desktop/4%20Hours%20Project/Kidney-Disease-Classification-MLflow-DVC/mlruns/0/5f09238911de4b1c8895183065450988/artifacts
+end_time: 1707039925623
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5f09238911de4b1c8895183065450988
+run_name: merciful-worm-611
+run_uuid: 5f09238911de4b1c8895183065450988
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1707039912970
+status: 3
+tags: []
+user_id: 08you
