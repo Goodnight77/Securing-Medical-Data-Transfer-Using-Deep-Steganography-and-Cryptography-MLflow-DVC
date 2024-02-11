@@ -9,6 +9,7 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
+import keras
 
 
 
@@ -123,6 +124,21 @@ def get_size(path: Path) -> str:
     """
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
+
+# Loss functions
+@ensure_annotations
+def custom_loss_1(secret,secret_pred):
+
+    # Compute L2 loss(MSE) for secret image
+    secret_mse = keras.losses.mean_squared_error(secret,secret_pred)
+    return secret_mse
+
+@ensure_annotations
+def custom_loss_2(cover,cover_pred):
+
+    # Compute L2 loss(MSE) for cover image
+    cover_mse = keras.losses.mean_squared_error(cover,cover_pred)
+    return cover_mse
 
 
 def decodeImage(imgstring, fileName):
