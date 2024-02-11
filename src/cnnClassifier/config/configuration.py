@@ -48,7 +48,10 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "kidney-ct-scan-image")
+        Med_train = training.Med_train
+        Cover_train= training.Cover_train
+        Med_val=training.Med_val
+        Cover_val=training.Cover_val
         create_directories([
             Path(training.root_dir)
         ])
@@ -56,8 +59,11 @@ class ConfigurationManager:
         training_config = TrainingConfig(
             root_dir=Path(training.root_dir),
             trained_model_path=Path(training.trained_model_path),
-            updated_base_model_path=Path(prepare_base_model.updated_base_model_path),
-            training_data=Path(training_data),
+            base_model_path=Path(prepare_base_model.base_model_path),
+            Med_train=Path(Med_train),
+            Cover_train= Path(Cover_train),
+            Med_val= Path(Med_val),
+            Cover_val= Path(Cover_val),
             params_epochs=params.EPOCHS,
             params_batch_size=params.BATCH_SIZE,
             params_is_augmentation=params.AUGMENTATION,
