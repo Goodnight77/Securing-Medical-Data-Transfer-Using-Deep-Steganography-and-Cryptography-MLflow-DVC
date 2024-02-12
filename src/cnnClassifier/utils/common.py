@@ -10,6 +10,8 @@ from pathlib import Path
 from typing import Any
 import base64
 import keras
+import numpy as np
+import cv2
 
 
 
@@ -152,3 +154,22 @@ def encodeImageIntoBase64(croppedImagePath):
     with open(croppedImagePath, "rb") as f:
         return base64.b64encode(f.read())
 
+
+@ensure_annotations
+def gray_to_rgb(image):
+    return cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+# Preprocessing functions
+@ensure_annotations
+def normalize_batch(imgs):
+    '''Performs channel-wise z-score normalization'''
+
+    return (imgs -  np.array([0.485, 0.456, 0.406])) /np.array([0.229, 0.224, 0.225])
+@ensure_annotations
+def denormalize_batch(imgs,should_clip=True):
+    '''Denormalize the images for prediction'''
+
+    imgs= (imgs * np.array([0.229, 0.224, 0.225])) + np.array([0.485, 0.456, 0.406])
+
+    if should_clip:
+        imgs= np.clip(imgs,0,1)
+    return imgs

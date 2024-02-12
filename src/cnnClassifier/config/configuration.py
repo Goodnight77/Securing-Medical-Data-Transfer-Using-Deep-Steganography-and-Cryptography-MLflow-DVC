@@ -74,9 +74,10 @@ class ConfigurationManager:
     def get_evaluation_config(self) -> EvaluationConfig:
         eval_config = EvaluationConfig(
             path_of_model= r"artifacts\training\model.h5",
-            training_data= r"artifacts\data_ingestion\kidney-ct-scan-image",
+            Med_test= r"artifacts\data_ingestion\Data-CS-DVC\test_data\Med_test",
+            Cover_test= r"artifacts\data_ingestion\Data-CS-DVC\test_data\Cover_test",
             all_params= self.params,
-            mlflow_uri= r"https://dagshub.com/08Youssef08/Kidney-Disease-Classification-MLflow-DVC.mlflow",
+            mlflow_uri= r"https://dagshub.com/08Youssef08/Securing-Medical-Data-Transfer-Using-Deep-Steganography-and-Cryptography-MLflow-DVC.mlflow",
             params_image_size= self.params.IMAGE_SIZE,
             params_batch_size= self.params.BATCH_SIZE
         )

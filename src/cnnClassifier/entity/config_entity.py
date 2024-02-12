@@ -32,7 +32,8 @@ class TrainingConfig:
 @dataclass(frozen=True)
 class EvaluationConfig:
     path_of_model: Path
-    training_data: Path
+    Med_test: Path
+    Cover_test:Path
     all_params: dict
     mlflow_uri: str
     params_image_size: list

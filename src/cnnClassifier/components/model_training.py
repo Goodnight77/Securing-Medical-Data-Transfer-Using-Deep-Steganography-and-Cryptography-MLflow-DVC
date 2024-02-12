@@ -5,7 +5,7 @@ import os
 import urllib.request as request
 from zipfile import ZipFile
 import tensorflow as tf
-from src.cnnClassifier.utils.common import custom_loss_1,custom_loss_2
+from src.cnnClassifier.utils.common import custom_loss_1,custom_loss_2,gray_to_rgb,normalize_batch,denormalize_batch
 import cv2
 import time
 import glob
@@ -20,25 +20,6 @@ class Training:
             self.config.base_model_path,custom_objects={'custom_loss_2': custom_loss_2,'custom_loss_1': custom_loss_1}
         )
     
-    # Function to convert grayscale image to RGB
-    @staticmethod
-    def gray_to_rgb(image):
-        return cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
-    # Preprocessing functions
-    @staticmethod
-    def normalize_batch(imgs):
-        '''Performs channel-wise z-score normalization'''
-
-        return (imgs -  np.array([0.485, 0.456, 0.406])) /np.array([0.229, 0.224, 0.225])
-    @staticmethod
-    def denormalize_batch(imgs,should_clip=True):
-        '''Denormalize the images for prediction'''
-
-        imgs= (imgs * np.array([0.229, 0.224, 0.225])) + np.array([0.485, 0.456, 0.406])
-
-        if should_clip:
-            imgs= np.clip(imgs,0,1)
-        return imgs
 
     # Custom generator for loading training images from directory
     def generate_generator_multiple(self,generator, med_path, cover_path):
@@ -46,14 +27,14 @@ class Training:
         genX2 = generator.flow_from_directory(cover_path, target_size=(224, 224), batch_size=self.config.params_batch_size, shuffle=True, class_mode=None)
 
         while True:
-            X1i = self.normalize_batch(genX1.next())
-            X2i = self.normalize_batch(genX2.next())
+            X1i = normalize_batch(genX1.next())
+            X2i = normalize_batch(genX2.next())
 
             # Check if the images are grayscale, and convert to RGB if necessary
             if X1i.shape[-1] != 3:
-                X1i = self.gray_to_rgb(X1i)
+                X1i = gray_to_rgb(X1i)
             if X2i.shape[-1] != 3:
-                X2i = self.gray_to_rgb(X2i)
+                X2i = gray_to_rgb(X2i)
 
             yield ({'secret': X1i, 'cover': X2i}, {'hide_conv_f': X2i, 'revl_conv_f': X1i})
 
@@ -67,7 +48,6 @@ class Training:
             **datagenerator_kwargs
         )
 
-        self.generate_generator_multiple(generator=valid_datagenerator, med_path=self.config.Med_val,cover_path=self.config.Cover_val)
         #needs to be two just like stego requirement
         if self.config.params_is_augmentation:
             train_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
