@@ -38,3 +38,10 @@ class EvaluationConfig:
     mlflow_uri: str
     params_image_size: list
     params_batch_size: int
+
+@dataclass(frozen=True)
+class SplitConfig:
+    root_dir: Path
+    trained_model_path: Path
+    hiding_model_path: Path
+    reveal_model_path: Path

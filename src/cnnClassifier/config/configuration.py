@@ -4,6 +4,8 @@ from cnnClassifier.entity.config_entity import DataIngestionConfig
 from cnnClassifier.entity.config_entity import TrainingConfig
 from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
 from cnnClassifier.entity.config_entity import EvaluationConfig
+from cnnClassifier.entity.config_entity import SplitConfig
+
 import os
 class ConfigurationManager:
     def __init__(
@@ -82,3 +84,17 @@ class ConfigurationManager:
             params_batch_size= self.params.BATCH_SIZE
         )
         return eval_config
+    def get_split_config(self) -> SplitConfig:
+        model_split = self.config.model_split
+        create_directories([
+            Path(model_split.root_dir)
+        ])
+
+        split_config = SplitConfig(
+            root_dir=Path(model_split.root_dir),
+            trained_model_path=Path(model_split.trained_model_path),
+            hiding_model_path = Path(model_split.hiding_model_path),
+            reveal_model_path = Path(model_split.reveal_model_path)
+        )
+
+        return split_config

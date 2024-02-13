@@ -19,3 +19,9 @@ training:
   Med_val: artifacts\data_ingestion\Data-CS-DVC\validation_data\Med_val
   Cover_val: artifacts\data_ingestion\Data-CS-DVC\validation_data\Cover_val
   trained_model_path: artifacts/training/model.h5
+
+model_split:
+  root_dir: artifacts/split_model
+  trained_model_path: artifacts/training/model.h5
+  hiding_model_path: artifacts/split_model/hiding.h5
+  reveal_model_path: artifacts/split_model/reveal.h5
