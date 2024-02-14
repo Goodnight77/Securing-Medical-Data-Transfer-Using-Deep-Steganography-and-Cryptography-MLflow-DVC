@@ -14,9 +14,6 @@ stages:
     params:
       - IMAGE_SIZE
       - LEARNING_RATE
-      - INCLUDE_TOP
-      - WEIGHTS
-      - CLASSES
     outs:
       - artifacts/prepare_base_model
     
@@ -47,3 +44,12 @@ stages:
     metrics: 
       - scores.json:
           cache: false
+  model_split:
+    cmd: python src\cnnClassifier\pipeline\stage_05_model_split.py
+    deps:
+      - src\cnnClassifier\pipeline\stage_05_model_split.py
+      - config\config.yaml
+      - artifacts/training/model.h5
+    outs:
+      - artifacts\split_model\hiding.h5
+      - artifacts\split_model\reveal.h5
