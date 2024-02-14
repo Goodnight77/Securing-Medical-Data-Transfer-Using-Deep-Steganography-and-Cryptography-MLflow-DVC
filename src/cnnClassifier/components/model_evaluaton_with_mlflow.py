@@ -4,7 +4,7 @@ import tensorflow as tf
 import mlflow
 import mlflow.keras
 from urllib.parse import urlparse
-from src.cnnClassifier.utils.common import custom_loss_1,custom_loss_2,gray_to_rgb,normalize_batch,denormalize_batch,save_json
+from cnnClassifier.utils.common import custom_loss_1,custom_loss_2,gray_to_rgb,normalize_batch,denormalize_batch,save_json
 import glob
 
 class Evaluation:

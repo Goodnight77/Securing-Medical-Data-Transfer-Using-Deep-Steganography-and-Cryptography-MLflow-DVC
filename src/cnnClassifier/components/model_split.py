@@ -1,7 +1,7 @@
 import sys
 from keras.models import Model
 import tensorflow as tf
-from src.cnnClassifier.utils.common import custom_loss_1,custom_loss_2
+from cnnClassifier.utils.common import custom_loss_1,custom_loss_2
 from cnnClassifier.entity.config_entity import SplitConfig
 
 

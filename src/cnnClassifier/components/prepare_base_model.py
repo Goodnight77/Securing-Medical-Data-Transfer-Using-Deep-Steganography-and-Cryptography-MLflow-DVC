@@ -1,4 +1,4 @@
-from src.cnnClassifier.utils.common import custom_loss_1, custom_loss_2
+from cnnClassifier.utils.common import custom_loss_1, custom_loss_2
 import urllib.request as request
 import tensorflow as tf 
 from keras.layers import Input, concatenate, Conv2D, GaussianNoise
