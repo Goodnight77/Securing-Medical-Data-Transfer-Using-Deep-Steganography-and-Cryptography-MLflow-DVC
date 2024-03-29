@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}
+Prediction - Secret revealed!
+{% endblock %}
+ 
+{% block content %}
+<div class="container py-5">
+ 
+    <header class="text-white text-center">
+        <h1 class="display-4">Reveal an image using our protocol!</h1>
+        <p class="lead mb-5">You will see the prediction of the steganographic image below!.</p>
+    </header>
+ 
+    <div class="text-center">
+        <img src="{{ url_for('static', filename='images/secretout.jpg') }}" class="image" />
+        <h2 class="mt-3">Here is your hidden image</h2>
+        <a href="{{ url_for('download_image') }}" class="btn btn-primary mt-3">Download Image</a>
+    </div>
+</div>
+{% endblock %}

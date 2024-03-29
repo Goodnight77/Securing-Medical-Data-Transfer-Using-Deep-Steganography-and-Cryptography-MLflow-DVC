@@ -5,22 +5,23 @@
     opacity: 0;
 }
 #upload-label1 {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 1rem;
-    transform: translateY(-50%);
-}
+    align-self: center;}
 #upload-label2 {
-    position: absolute;
+    position: relative;
     top: 10%;
     left: 1rem;
-    transform: translateY(-50%);
+    align-self: center;
 }
  
 .image-area {
     border: 2px dashed rgba(255, 255, 255, 0.7);
     padding: 4rem;
     position: relative;
+    margin-bottom: 16px;
+    margin-top: 16px;
 }
  
 .image-area::before {
@@ -48,3 +49,49 @@ body {
     background-color: #757f9a;
     background-image: linear-gradient(147deg, #9b5de5 0%, #f15bb5 100%);
 }
+
+.Acontainer {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+
+  .hide-button:hover {
+    background-color: #333;
+    
+  }
+  .reveal-button {
+    background-color: #333;
+    
+  }
+
+  .hide-button {
+    font-weight: 800;
+    background-color: #ff6347;
+    display: inline-block;
+    padding: 80px 160px;
+    margin: 10px;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .reveal-button {
+    font-weight: 800;
+    display: inline-block;
+    padding: 80px 160px;
+    margin: 10px;
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #3cb371;
+  }

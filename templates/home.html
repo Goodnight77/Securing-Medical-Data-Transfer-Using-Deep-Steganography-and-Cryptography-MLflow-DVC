@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% extends "layout.html" %}
+{% block title %}
+    Homepage
+{% endblock %}
+ 
+{% block content %}
+
+<div class="container py-5">
+ 
+    <header class="text-white text-center">
+        <h1 class="display-4">Hiding Processed!</h1>
+        <p class="lead mb-5">You will see the prediction Steganographic image below!.</p>
+    </header>
+ 
+    <div class="Acontainer">
+        <a href="{{ url_for('hide') }}" class="hide-button">Hide</a>
+        <a href="{{ url_for('reveal') }}" class="reveal-button">Reveal</a>
+    </div>
+</div>
+{% endblock %}

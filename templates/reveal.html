@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}
+Image revealing page
+{% endblock %}
+ 
+{% block content %}
+<div class="container py-5">
+ 
+    <header class="text-white text-center">
+        <h1 class="display-4">Reveal an image following our protocol!</h1>
+        <p class="lead mb-5">A webapp for a safer steganographic and cryptographic medical
+             images transfer! Chose a secret then cover image and see the magic!.</p>
+    </header>
+ 
+    <div class="row py-4">
+        <div class="col-lg-6 mx-auto">
+ 
+            <!-- Upload image input for Medical Image-->
+            <form action="{{ url_for('revealprediction') }}" enctype="multipart/form-data" method="POST">
+                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                    <label for="upload1" class="font-weight-bold text-muted" id="upload-label1">Select Medical Image</label>
+                    <input class="form-control border-0" id="upload1" name="toreveal" type="file">
+                    <div class="input-group-append">
+                        <label class="btn btn-light m-0 rounded-pill px-4" for="upload1"> <i
+                                class="fa fa-cloud-upload mr-2 text-muted"></i><small
+                                class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                    </div>
+                </div>
+                <div class="image-area mt-4"><img alt="" class="img-fluid rounded shadow-sm mx-auto d-block"
+                                                  id="imageResult1" name="imageResult1" src="#"></div>
+ 
+                <!-- Submit button-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <input class="btn btn-primary my-3" type="submit" value="Upload Images">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+ 
+        </div>
+    </div>
+    
+    
+</div>
+<div class="container py-5">
+ 
+    <header class="text-white text-center">
+        <h1 class="display-4">Steganographic Hiding and revealing pipeline</h1>
+        <p class="lead mb-5">A webapp for a safer steganographic and cryptographic medical images transfer!</p>
+    </header>
+ 
+    
+</div>
+ 
+{% endblock %}
