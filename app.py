@@ -22,9 +22,9 @@ class ClientApp:
     def __init__(self):
         self.secret = "static\images\secret.jpg"
         self.cover = "static\images\cover.jpg"
-        self.coverout = "static\images\Coverout.jpg"
-        self.toreveal = r"static\images\toreveal.jpg"
-        self.secretout = r"static\images\secretout.jpg"
+        self.coverout = "static\images\Coverout.png"
+        self.toreveal = r"static\images\toreveal.png"
+        self.secretout = r"static\images\secretout.png"
         self.hideclassifier = HidePredictionPipeline(self.secret, self.cover)
         self.revealclassifier = RevealPredictionPipeline()
 
@@ -103,7 +103,7 @@ def revealprediction():
 
 def download_image():
     # Define the path to your image file
-    image_path = "static/images/Coverout.jpg"
+    image_path = "static/images/Coverout.png"
     # Send the file for download
     return send_file(image_path, as_attachment=True)
 if __name__ == "__main__":
