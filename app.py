@@ -116,7 +116,7 @@ if __name__ == "__main__":
 
 
 
-
+#for web socket we will deal with it later
 """import smtplib # lib for notif sending
 
 from flask import Flask, render_template, request, redirect, url_for, flash
