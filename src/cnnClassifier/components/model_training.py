@@ -27,8 +27,8 @@ class Training:
         genX2 = generator.flow_from_directory(cover_path, target_size=(224, 224), batch_size=self.config.params_batch_size, shuffle=True, class_mode=None)
 
         while True:
-            X1i = normalize_batch(genX1.next())
-            X2i = normalize_batch(genX2.next())
+            X1i = normalize_batch(genX1.__next__())
+            X2i = normalize_batch(genX2.__next__())
 
             # Check if the images are grayscale, and convert to RGB if necessary
             if X1i.shape[-1] != 3:

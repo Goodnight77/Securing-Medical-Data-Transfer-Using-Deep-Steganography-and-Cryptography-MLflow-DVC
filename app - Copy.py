@@ -29,7 +29,7 @@ clApp = ClientApp()
 @app.route("/", methods=['GET'])
 @cross_origin()
 def home():
-    return render_template('index.html', prediction=None, confidence=None, img_path=None)
+    return render_template('hide.html', prediction=None, confidence=None, img_path=None)
 
 @app.route("/train", methods=['GET', 'POST'])
 @cross_origin()
