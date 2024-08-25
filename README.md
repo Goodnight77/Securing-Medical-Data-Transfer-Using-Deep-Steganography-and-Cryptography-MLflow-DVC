@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Securing Medical Data Transfer Using Deep Steganography and Cryptography - MLflow & DVC
 
 ## Project Overview
@@ -57,9 +57,5 @@ This project is licensed under the Apache License 2.0.
 
 For any questions or inquiries, please contact:
 
-* **Email:** [AUTHOR_EMAIL]
-=======
-# Securing-Medical-Data-Transfer-Using-Deep-Steganography-and-Cryptography
-this is a readme file 
-READ ME thnx
->>>>>>> 768f95bfaa74b0fb707be80a3700e888145b8687
+* **Email:** [mohammedarbi.nsibi@supcom.tn]
+
